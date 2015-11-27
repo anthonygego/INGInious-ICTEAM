@@ -1,0 +1,17 @@
+{
+    "accessible": false,
+    "name": "[ICTM] ICTEAM demonstration tasks",
+    "groups_student_choice": false,
+    "registration_password": null,
+    "tutors": [],
+    "registration_ac": null,
+    "admins": [
+        "gderval",
+        "gegoa",
+        "xlambein"
+    ],
+    "registration_ac_list": [
+        ""
+    ],
+    "registration": true
+}

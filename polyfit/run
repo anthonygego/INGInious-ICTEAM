@@ -1,0 +1,12 @@
+#!/bin/octave
+
+system("parsetemplate -o student/poly_regress.m template.m");
+system("cp grade.m student/");
+system("chmod +x student/grade.m");
+[status, output] = system("run_student ./student/grade.m > exec.txt 2>&1");
+if status == 0
+	system('feedback --result success --feedback "Well done !"');
+else
+	[status, output] = system("cat exec.txt | grep -vwE 'warning' |sed -e 's/^/\t/' | sed 's/%/%%/g'");
+	system(sprintf('feedback --result failed --feedback "Check your code. Here is the result of the test :\n\n\n .. code-block :: octave\n\n%s"', output));
+end

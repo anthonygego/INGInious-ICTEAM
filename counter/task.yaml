@@ -1,0 +1,26 @@
+accessible: true
+author: Anthony Gégo
+context: |-
+    Counters are sequential circuits which output value, determined at every clock cycle, follows a specified sequence. In this exercice, you are asked to design a basic incremental counter in Verilog.
+
+    Your circuit will be driven by the clock signal **clk** and the reset signal **reset**. The output **out** signal size will be determined by a **unique parameter** of your circuit. Your counter must be set to zero after reset and increment by 1 until overflow.
+environment: verilog
+groups: false
+limits:
+    memory: '512'
+    time: '30'
+    output: '2'
+name: Digital counter
+network_grading: false
+problems:
+    thecode:
+        language: verilog
+        type: code
+        name: Counter module
+        header: |-
+            Implement the counter module starting with the following signature :
+
+            .. code:: verilog
+
+                module counter(clk, reset, out)
+weight: 1.0

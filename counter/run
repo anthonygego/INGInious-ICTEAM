@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Switch to student folder for secure grading
+mv counter_tb.v student/
+cd student
+# Save the code into new file
+getinput thecode > counter.v
+
+# First bunch of tests
+HAVE_PARAMETER=$(cat counter.v | grep "^[[:space:]]*parameter")
+if [ "$HAVE_PARAMETER" == "" ]; then
+	feedback --result failed --feedback "It seems you didn't have parameterized your module."
+    exit 0
+fi
+
+# Compile the design
+iverilog -o counter_design counter.v counter_tb.v 2> error.txt
+#Check return code
+if [ $? -ne 0 ]; then
+	# Compilation failed, report it
+	ERROR=$(cat error.txt | sed -e 's/^/\t/' | sed 's/%/%%/g')
+    MSG=$(printf "Compilation of your module failed. Here is the error log : \n .. code-block:: verilog\n\n $ERROR")
+    feedback --result failed --feedback "$MSG"
+    exit 0
+fi
+
+# Execute student submission in container
+run_student vvp counter_design | tr -s " " > student_simul.txt
+
+# go back
+cd ..
+
+# Check if execution match the expected result
+diff --ignore-all-space correct_simul.txt student/student_simul.txt > diff_simul.txt
+if [ $? -eq 0 ]; then
+    feedback --result success --feedback "Great! Your counter works just as expected."
+    exit 0
+fi
+
+# Submission is wrong. Try to know why.
+# Check for ignoring reset
+COUNT=$(cat diff_simul.txt | grep "^>" | grep -c "x")
+if [ $COUNT -gt 0 ]; then
+	feedback --result failed --feedback "Your circuit outputs X states after reset. Check if you are correctly handling the signal."
+    exit 0;
+fi
+# Check for bad reset
+COUNT=$(cat diff_simul.txt | grep "^<" | grep -c " 0\$")
+if [ $COUNT -eq 11 ]; then
+	feedback --result failed --feedback "Your circuit does not seem to reset correctly to 0. Check the value of **out** register when your circuit is reset."
+    exit 0;
+fi
+# Check for increment error
+COUNT=$(cat diff_simul.txt | grep -c "^>")
+if [ $COUNT -eq 83 ]; then
+	feedback --result failed --feedback "Your circuit does not provide the expected result. It seems you may not have set the increment to 1."
+    exit 0;
+fi
+
+# Here we do not have much idea. The best we can do is to give the error we observe to student.
+feedback --result failed --feedback "Your counter behaves very strangely. You should entirely reconsider your design !"

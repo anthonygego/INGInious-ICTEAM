@@ -1,0 +1,312 @@
+accessible: true
+author: Anthony Gégo
+context: ''
+environment: default
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Python operators and control flow statements
+network_grading: false
+order: 1
+problems:
+    mcq1:
+        header: |-
+            Consider the following piece of code :
+
+            .. code-block:: python
+
+                x=42
+                if x>0:
+                    print "Positive"
+                else:
+                print "Negative"
+
+            What does Python will display ?
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    Positive
+        -   text: |-
+                .. code-block:: python
+
+                    Positive
+                    Negative
+        -   valid: true
+            text: Nothing, this code will crash
+        type: multiple-choice
+        name: If statement
+        limit: 0
+    mcq2:
+        choices:
+        -   text: The second argument of range is a not-included bound.
+            valid: true
+        -   text: The range function will return a list of all integers from 0 to
+                100, including odd numbers.
+        -   text: '*2* is the *skip* argument, telling range function to skip two
+                integers each time.'
+        name: For statement
+        limit: 0
+        header: |-
+            Your friend wrote a small program to display all the even numbers from 0 to 100 (included) but can't get to the goal. Can you help him to see what's wrong in that code ?
+
+            .. code-block:: python
+
+                for x in range(0,100,2):
+                    print x
+        type: multiple-choice
+    mcq3:
+        header: |
+            Consider this piece of code :
+
+            .. code-block:: python
+
+                x=["tomato", "carrot", "celeri", "lettuce", "cabbage"]
+                for i in range(len(x)):
+                    if i==0:
+                        continue
+                    if i==3:
+                        break
+                    else:
+                        print x[i]
+
+            What does this code display ?
+        choices:
+        -   valid: true
+            text: |-
+                .. code-block:: python
+
+                    carrot
+                    celeri
+        -   text: |-
+                .. code-block:: python
+
+                    tomato
+                    carrot
+                    celeri
+        -   text: |-
+                .. code-block:: python
+
+                    tomato
+                    carrot
+                    celeri
+                    cabbage
+        type: multiple-choice
+        name: Break and continue statements
+        limit: 0
+    mcq4:
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    def ap_rectangle(a,b): #a,b are the dimensions
+                        return a*b, 2*a+2*b
+
+                    # Example of use
+                    area, perimeter = ap_rectangle(2,4)
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    def ap_rectangle(a,b): # a,b are the dimensions
+                        return a*b
+                        return 2*a+2*b
+
+                    # Example of use
+                    area, perimeter = ap_rectangle(2,4)
+        -   text: None of these, functions can only return one object.
+        type: multiple-choice
+        name: Functions
+        header: 'One is interested in writing a Python function that computes the
+            area and perimeter of a rectangle. Which of the following implementations
+            will you use :'
+        limit: 0
+    mcq5:
+        limit: 0
+        type: multiple-choice
+        header: |-
+            You have learned about optional paramters in Python and are trying to write a greeting function with a specific message according to the language of the person you greet. For all others, a classic message will appear.
+
+            .. code-block:: python
+
+               def greet(name, phrase="Hello, ")
+                   print phrase + name + " !"
+
+               greet("Emile", "Bonjour, ")
+               greet("Javier", "Buenos dias, ")
+               greet("Gunther", "Guten Tag, ")
+
+            John speaks English, how will you greet him ?
+        choices:
+        -   valid: true
+            text: |-
+                .. code-block:: python
+
+                    greet("John")
+        -   text: |-
+                .. code-block:: python
+
+                    greet("John", "")
+        -   text: |-
+                .. code-block:: python
+
+                    greet("John",)
+        name: Optional arguments
+    mcq6:
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    def greet(greetstr):
+                        return lambda name : greetstr + name + " !"
+
+                    french_greet = greet("Bonjour, ")
+                    english_greet = greet("Hello, ")
+
+                    print french_greet("Emile")
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    def greet(name):
+                        return lambda name : greetstr + name + " !"
+
+                    french_greet = greet("Bonjour, ")
+                    english_greet = greet("Hello, ")
+
+                    print french_greet("Emile")
+        -   text: |-
+                .. code-block:: python
+
+                    def greet(greetstr):
+                        return lambda greetstr : greetstr + name + " !"
+
+                    french_greet = greet("Bonjour, ")
+                    english_greet = greet("Hello, ")
+
+                    print french_greet("Emile")
+        type: multiple-choice
+        name: Lambdas
+        limit: 0
+        header: Your friend saw your last code and suggests you use lambdas to avoid
+            rewriting several times the string for another language. Unfortunately,
+            he wrote several versions and only one is correct, can you find it ?
+    mcq7:
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    printf("Hello %s", "John")
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    printf("Hello %s", name="John")
+        -   text: |-
+                .. code-block:: python
+
+                    printf("Account of M(rs). %s : %d €", "John Smith", 442)
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    printf("Account of M(rs). %s : %d €", "John Smith", number=442)
+        limit: 4
+        type: multiple-choice
+        name: Arbitrary argument list
+        header: |-
+            Consider the following piece of code :
+
+            .. code-block:: python
+
+                def printf(str, *args):
+                    # Not implemented
+
+            Which of these calls is correct (however the function is implemented) ?
+        multiple: true
+    mcq8:
+        header: |-
+            Consider the following piece of code:
+
+            .. code-block:: python
+
+                def account_balance(**kargs):
+                    print "Account of M(rs)." + kargs['name'] + " : " + kargs['balance'] +" €"
+
+            Which of these calls will work with this definition ?
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    account_balance(name="John Smith", balance=800)
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    account_balance(balance=800, name="John Smith")
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    account_balance("John Smith", 800)
+        -   text: |-
+                .. code-block:: python
+
+                    account_balance(name="John Smith")
+        multiple: true
+        type: multiple-choice
+        limit: 4
+        name: Argument keywords
+    mcq9:
+        choices:
+        -   text: Python expects an indented block, he can use the *pass* statement.
+            valid: true
+        -   text: The function is badly declared.
+        -   text: You can't write such functions in Python because it is non-sense.
+        name: Farniente
+        header: |-
+            Your colleague is very inspired today and just wants to write a function that do nothing. He tried this way :
+
+            .. code-block:: python
+
+                def do_nothing():
+                    # Do nothing
+
+            But that does'nt work, and Python crashes. What's going on ?
+        limit: 0
+        type: multiple-choice
+    mcq10:
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    import cmath
+
+                    def roots(a,b,c):
+                        """ Returns the roots of the ax^2+bx+c polynomial"""
+                        return -(b+cmath.sqrt(b**2-4*a*c))/2*a, -(b-cmath.sqrt(b**2-4*a*c))/2*a
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    import cmath
+
+                    def roots(a,b,c):
+                        " Returns the roots of the ax^2+bx+c polynomial"
+                        return -(b+cmath.sqrt(b**2-4*a*c))/2*a, -(b-cmath.sqrt(b**2-4*a*c))/2*a
+        -   text: |-
+                .. code-block:: python
+
+                    import cmath
+
+                    def roots(a,b,c):
+                        return -(b+cmath.sqrt(b**2-4*a*c))/2*a, -(b-cmath.sqrt(b**2-4*a*c))/2*a
+                        """ Returns the roots of the ax^2+bx+c polynomial"""
+        name: Documentation strings
+        type: multiple-choice
+        header: Docstrings are useful when writting documentation for your code in
+            Python. Can you check the correct usage of docstrings ?
+        limit: 0
+weight: 1.0
