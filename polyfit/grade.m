@@ -3,7 +3,7 @@
 addpath('student');
 
 % Init data
-m=3;
+m=ceil(rand(1,1)*8);
 n=ceil(rand(1,1)*100);
 x = linspace(1, n, n);
 y = rand(1,n)*30;
