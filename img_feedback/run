@@ -1,0 +1,11 @@
+#!/bin/python
+import os
+import base64
+text = os.popen('getinput myname').read().strip('\n')
+
+with open("smiley.jpg", "rb") as image_file:
+    encoded_string = base64.b64encode(image_file.read())
+
+encoded_string = '\n\n.. raw:: html\n\n\t<img src="data:image/jpg;base64,' + encoded_string +'">\n'
+
+os.system("feedback --result success --feedback 'Hello " + text + " ! " + encoded_string + "'")

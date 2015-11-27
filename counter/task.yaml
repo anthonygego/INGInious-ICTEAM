@@ -24,3 +24,4 @@ problems:
 
                 module counter(clk, reset, out)
 weight: 1.0
+order: 1

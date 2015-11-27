@@ -52,10 +52,14 @@ if [ $COUNT -eq 11 ]; then
 fi
 # Check for increment error
 COUNT=$(cat diff_simul.txt | grep -c "^>")
-if [ $COUNT -eq 83 ]; then
+if [ $COUNT -eq 83 ]; then #This work for multiple of 2
 	feedback --result failed --feedback "Your circuit does not provide the expected result. It seems you may not have set the increment to 1."
     exit 0;
 fi
-
+CHECK=$(cat student/counter.v | grep -c "[[:space:]]*+[[:space:]]*1")
+if [ $CHECK -eq 0 ]; then #This work for multiple of 2
+	feedback --result failed --feedback "Your circuit does not provide the expected result. It seems you may not have set the increment to 1."
+    exit 0;
+fi
 # Here we do not have much idea. The best we can do is to give the error we observe to student.
 feedback --result failed --feedback "Your counter behaves very strangely. You should entirely reconsider your design !"

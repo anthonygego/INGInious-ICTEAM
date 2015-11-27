@@ -43,3 +43,4 @@ problems:
             Please compute the vector **a** resulting from the polynomial regression
             of order **m**. You can use any existing function.
 weight: 1.0
+order: 2

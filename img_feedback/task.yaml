@@ -1,0 +1,19 @@
+accessible: true
+author: Anthony
+context: This small task aims at greeting you.
+environment: math
+groups: false
+limits:
+    memory: '5121'
+    time: '30'
+    output: '2'
+name: Hello world !
+network_grading: false
+problems:
+    myname:
+        language: ''
+        header: Please enter your name below.
+        type: code-single-line
+        name: Enter your name
+weight: 1.0
+order: 0
