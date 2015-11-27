@@ -1,0 +1,18 @@
+accessible: true
+author: h
+context: hello
+environment: default
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Dummy task
+network_grading: false
+problems:
+    test:
+        name: test
+        type: code
+        language: java
+        header: test
+weight: 1.0
