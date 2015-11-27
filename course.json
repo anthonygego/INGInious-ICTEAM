@@ -1,5 +1,5 @@
 {
-    "accessible": false,
+    "accessible": true,
     "name": "[ICTM] ICTEAM demonstration tasks",
     "groups_student_choice": false,
     "registration_password": null,
