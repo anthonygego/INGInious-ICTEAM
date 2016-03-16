@@ -4,7 +4,7 @@ import base64
 text = os.popen('getinput myname').read().strip('\n')
 
 command = 'convert smiley.jpg -fill blue '+\
-          '-font CANDY.ttf -pointsize 72 label:"Hello '+text+'" '+\
+          '-font CANDY.TTF -pointsize 72 label:"Hello '+text+'" '+\
           '-append new.jpg'
 
 os.popen(command).read()
