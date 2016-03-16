@@ -1,10 +1,13 @@
 accessible: true
 author: Guillaume Derval
-context: |+
+context: |-
     Voici une dictée tirée d'une célèbre BD:
 
     .. raw:: html
 
+        <audio controls>
+        <source src="https://inginious.info.ucl.ac.be/course/ictm/Dictation/dictee.mp3" type="audio/mp3">
+        </audio>
 environment: demo
 groups: false
 limits:
