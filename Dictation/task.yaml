@@ -1,0 +1,22 @@
+accessible: true
+author: Guillaume Derval
+context: |+
+    Voici une dictée tirée d'une célèbre BD:
+
+    .. raw:: html
+
+environment: demo
+groups: false
+limits:
+    memory: '100'
+    time: '5'
+    output: '2'
+name: Dictation (simple demo)
+network_grading: false
+problems:
+    dictee:
+        language: plain
+        name: Tape la dictée ici
+        type: code
+        header: ''
+weight: 1.0
