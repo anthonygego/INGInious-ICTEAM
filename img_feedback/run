@@ -3,6 +3,12 @@ import os
 import base64
 text = os.popen('getinput myname').read().strip('\n')
 
+command = 'convert smiley.jpg -fill blue '+\
+          '-font CANDY.ttf -pointsize 72 label:"Hello '+text+'"'+\
+          '-append'
+
+os.popen(command).read()
+
 with open("smiley.jpg", "rb") as image_file:
     encoded_string = base64.b64encode(image_file.read())
 
