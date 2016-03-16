@@ -8,6 +8,8 @@ context: |-
         <audio controls>
         <source src="https://inginious.info.ucl.ac.be/course/ictm/Dictation/dictee.mp3" type="audio/mp3">
         </audio>
+
+        <div style="color:white;">Quelle belle cueillette nous fîmes : quelques hyménomycètes, des hypholomes, des helvelles, des polypores versicoles, des géasters fimbriés</div>
 environment: demo
 groups: false
 limits:
