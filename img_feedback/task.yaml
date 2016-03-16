@@ -1,7 +1,7 @@
 accessible: true
 author: Anthony Gégo
 context: This small task aims at greeting you.
-environment: math
+environment: demo
 groups: false
 limits:
     memory: '5121'
