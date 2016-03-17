@@ -9,6 +9,5 @@ retval=`wdiff userinput.txt solution.txt`
 if [ "$original" = "$retval" ]; then
 	feedback --result success --feedback "Bravo!"
 else
-	
     feedback --result failed --feedback "$retval"
 fi
