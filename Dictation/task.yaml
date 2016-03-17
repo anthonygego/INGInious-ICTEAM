@@ -5,7 +5,7 @@ context: |-
 
     .. raw:: html
 
-        <audio controls>
+        <audio controls loop>
         <source src="https://inginious.info.ucl.ac.be/course/ictm/Dictation/dictee.mp3" type="audio/mp3">
         </audio>
 
