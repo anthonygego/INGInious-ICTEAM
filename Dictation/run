@@ -4,10 +4,11 @@ getinput dictee > userinput.txt
 
 original=`cat solution.txt`
 userinput=`cat userinput.txt`
+retval=`wdiff userinput.txt solution.txt`
 
-if [ "$original" = "$userinput" ]; then
+if [ "$original" = "$retval" ]; then
 	feedback --result success --feedback "Bravo!"
 else
-	retval=`wdiff userinput.txt solution.txt`
+	
     feedback --result failed --feedback "$retval"
 fi
