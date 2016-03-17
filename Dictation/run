@@ -1,0 +1,13 @@
+#! /bin/bash
+
+getinput dictee > userinput.txt
+
+original=`cat solution.txt`
+userinput=`cat userinput.txt`
+
+if [ "$original" = "$userinput" ]; then
+	feedback --result success --feedback "Bravo!"
+else
+	retval=`wdiff userinput.txt solution.txt`
+    feedback --result failed --feedback "$retval"
+fi
