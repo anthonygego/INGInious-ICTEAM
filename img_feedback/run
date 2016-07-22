@@ -3,13 +3,13 @@ import os
 import base64
 text = os.popen('getinput myname').read().strip('\n')
 
-command = 'convert smiley.jpg -fill blue '+\
-          '-font CANDY.TTF -pointsize 72 label:"Hello '+text+'" '+\
-          '-append new.jpg'
+#command = 'convert smiley.jpg -fill blue '+\
+#          '-font CANDY.TTF -pointsize 72 label:"Hello '+text+'" '+\
+#          '-append new.jpg'
 
-os.popen(command).read()
+#os.popen(command).read()
 
-with open("new.jpg", "rb") as image_file:
+with open("smiley.jpg", "rb") as image_file:
     encoded_string = base64.b64encode(image_file.read())
 
 encoded_string = '\n\n.. raw:: html\n\n\t<img src="data:image/jpg;base64,' + encoded_string +'">\n'
