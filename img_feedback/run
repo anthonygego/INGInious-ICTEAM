@@ -1,6 +1,8 @@
 #!/bin/python
 import os
 import base64
+import inginious.feedback
+
 text = os.popen('getinput myname').read().strip('\n')
 
 #command = 'convert smiley.jpg -fill blue '+\
@@ -9,4 +11,5 @@ text = os.popen('getinput myname').read().strip('\n')
 
 #os.popen(command).read()
 
-os.system("rst-image smiley.jpg | feedback-msg -a")
+os.system("rst-image new.jpg | feedback-msg -a")
+inginious.feedback.set_global_result("success")
