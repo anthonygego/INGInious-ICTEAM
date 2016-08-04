@@ -1,17 +1,30 @@
 accessible: true
 author: Anthony Gégo
 context: ''
-environment: default
+environment: mcq
+evaluate: best
 groups: false
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: Python operators and control flow statements
 network_grading: false
 order: 3
 problems:
     mcq1:
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    Positive
+        -   text: |-
+                .. code-block:: python
+
+                    Positive
+                    Negative
+        -   text: Nothing, this code will crash
+            valid: true
         header: |-
             Consider the following piece of code :
 
@@ -24,21 +37,9 @@ problems:
                 print "Negative"
 
             What does Python will display ?
-        choices:
-        -   text: |-
-                .. code-block:: python
-
-                    Positive
-        -   text: |-
-                .. code-block:: python
-
-                    Positive
-                    Negative
-        -   valid: true
-            text: Nothing, this code will crash
         type: multiple-choice
-        name: If statement
         limit: 0
+        name: If statement
     mcq2:
         choices:
         -   text: The second argument of range is a not-included bound.
@@ -47,8 +48,9 @@ problems:
                 100, including odd numbers.
         -   text: '*2* is the *skip* argument, telling range function to skip two
                 integers each time.'
-        name: For statement
+        type: multiple-choice
         limit: 0
+        name: For statement
         header: |-
             Your friend wrote a small program to display all the even numbers from 0 to 100 (included) but can't get to the goal. Can you help him to see what's wrong in that code ?
 
@@ -56,23 +58,7 @@ problems:
 
                 for x in range(0,100,2):
                     print x
-        type: multiple-choice
     mcq3:
-        header: |
-            Consider this piece of code :
-
-            .. code-block:: python
-
-                x=["tomato", "carrot", "celeri", "lettuce", "cabbage"]
-                for i in range(len(x)):
-                    if i==0:
-                        continue
-                    if i==3:
-                        break
-                    else:
-                        print x[i]
-
-            What does this code display ?
         choices:
         -   valid: true
             text: |-
@@ -93,9 +79,24 @@ problems:
                     carrot
                     celeri
                     cabbage
-        type: multiple-choice
         name: Break and continue statements
         limit: 0
+        type: multiple-choice
+        header: |
+            Consider this piece of code :
+
+            .. code-block:: python
+
+                x=["tomato", "carrot", "celeri", "lettuce", "cabbage"]
+                for i in range(len(x)):
+                    if i==0:
+                        continue
+                    if i==3:
+                        break
+                    else:
+                        print x[i]
+
+            What does this code display ?
     mcq4:
         choices:
         -   text: |-
@@ -117,14 +118,28 @@ problems:
                     # Example of use
                     area, perimeter = ap_rectangle(2,4)
         -   text: None of these, functions can only return one object.
-        type: multiple-choice
         name: Functions
+        limit: 0
         header: 'One is interested in writing a Python function that computes the
             area and perimeter of a rectangle. Which of the following implementations
             will you use :'
-        limit: 0
+        type: multiple-choice
     mcq5:
-        limit: 0
+        choices:
+        -   text: |-
+                .. code-block:: python
+
+                    greet("John")
+            valid: true
+        -   text: |-
+                .. code-block:: python
+
+                    greet("John", "")
+        -   text: |-
+                .. code-block:: python
+
+                    greet("John",)
+        name: Optional arguments
         type: multiple-choice
         header: |-
             You have learned about optional paramters in Python and are trying to write a greeting function with a specific message according to the language of the person you greet. For all others, a classic message will appear.
@@ -139,22 +154,9 @@ problems:
                greet("Gunther", "Guten Tag, ")
 
             John speaks English, how will you greet him ?
-        choices:
-        -   valid: true
-            text: |-
-                .. code-block:: python
-
-                    greet("John")
-        -   text: |-
-                .. code-block:: python
-
-                    greet("John", "")
-        -   text: |-
-                .. code-block:: python
-
-                    greet("John",)
-        name: Optional arguments
+        limit: 0
     mcq6:
+        type: multiple-choice
         choices:
         -   text: |-
                 .. code-block:: python
@@ -187,7 +189,6 @@ problems:
                     english_greet = greet("Hello, ")
 
                     print french_greet("Emile")
-        type: multiple-choice
         name: Lambdas
         limit: 0
         header: Your friend saw your last code and suggests you use lambdas to avoid
@@ -195,11 +196,11 @@ problems:
             he wrote several versions and only one is correct, can you find it ?
     mcq7:
         choices:
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. code-block:: python
 
                     printf("Hello %s", "John")
-            valid: true
         -   text: |-
                 .. code-block:: python
 
@@ -213,8 +214,8 @@ problems:
                 .. code-block:: python
 
                     printf("Account of M(rs). %s : %d €", "John Smith", number=442)
-        limit: 4
         type: multiple-choice
+        multiple: true
         name: Arbitrary argument list
         header: |-
             Consider the following piece of code :
@@ -225,17 +226,9 @@ problems:
                     # Not implemented
 
             Which of these calls is correct (however the function is implemented) ?
-        multiple: true
+        limit: 4
     mcq8:
-        header: |-
-            Consider the following piece of code:
-
-            .. code-block:: python
-
-                def account_balance(**kargs):
-                    print "Account of M(rs)." + kargs['name'] + " : " + kargs['balance'] +" €"
-
-            Which of these calls will work with this definition ?
+        multiple: true
         choices:
         -   text: |-
                 .. code-block:: python
@@ -255,17 +248,26 @@ problems:
                 .. code-block:: python
 
                     account_balance(name="John Smith")
-        multiple: true
-        type: multiple-choice
         limit: 4
+        type: multiple-choice
+        header: |-
+            Consider the following piece of code:
+
+            .. code-block:: python
+
+                def account_balance(**kargs):
+                    print "Account of M(rs)." + kargs['name'] + " : " + kargs['balance'] +" €"
+
+            Which of these calls will work with this definition ?
         name: Argument keywords
     mcq9:
         choices:
-        -   text: Python expects an indented block, he can use the *pass* statement.
-            valid: true
+        -   valid: true
+            text: Python expects an indented block, he can use the *pass* statement.
         -   text: The function is badly declared.
         -   text: You can't write such functions in Python because it is non-sense.
         name: Farniente
+        limit: 0
         header: |-
             Your colleague is very inspired today and just wants to write a function that do nothing. He tried this way :
 
@@ -275,11 +277,11 @@ problems:
                     # Do nothing
 
             But that does'nt work, and Python crashes. What's going on ?
-        limit: 0
         type: multiple-choice
     mcq10:
         choices:
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. code-block:: python
 
                     import cmath
@@ -287,7 +289,6 @@ problems:
                     def roots(a,b,c):
                         """ Returns the roots of the ax^2+bx+c polynomial"""
                         return -(b+cmath.sqrt(b**2-4*a*c))/2*a, -(b-cmath.sqrt(b**2-4*a*c))/2*a
-            valid: true
         -   text: |-
                 .. code-block:: python
 
@@ -304,9 +305,10 @@ problems:
                     def roots(a,b,c):
                         return -(b+cmath.sqrt(b**2-4*a*c))/2*a, -(b-cmath.sqrt(b**2-4*a*c))/2*a
                         """ Returns the roots of the ax^2+bx+c polynomial"""
-        name: Documentation strings
-        type: multiple-choice
+        limit: 0
         header: Docstrings are useful when writting documentation for your code in
             Python. Can you check the correct usage of docstrings ?
-        limit: 0
+        type: multiple-choice
+        name: Documentation strings
+stored_submissions: 0
 weight: 1.0
