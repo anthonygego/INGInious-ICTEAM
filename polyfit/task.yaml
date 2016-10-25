@@ -27,20 +27,25 @@ context: |-
 
     In this exercice, you are simply asked to compute the the polynomial regression of order m for a given set of points.
 environment: math
+evaluate: best
 groups: false
 limits:
     memory: '512'
-    time: '30'
     output: '2'
+    time: '30'
 name: Polynomial regression
 network_grading: false
+order: 2
 problems:
     thecode:
-        language: octave
-        type: code
-        name: Polynomial regression
         header: You are given a vector **x** and a vector **y** of the same size.
             Please compute the vector **a** resulting from the polynomial regression
             of order **m**. You can use any existing function.
+        language: octave
+        type: code
+        name: Polynomial regression
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0
-order: 2
