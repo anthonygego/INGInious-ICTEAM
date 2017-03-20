@@ -2,18 +2,23 @@ accessible: true
 author: Anthony Gégo
 context: This small task aims at greeting you.
 environment: default
+evaluate: best
 groups: false
 limits:
-    memory: '5121'
-    time: '30'
     output: '2'
+    memory: '256'
+    time: '30'
 name: Hello world !
 network_grading: false
 order: 0
 problems:
     myname:
         language: ''
+        name: Enter your name
         header: Please enter your name below.
         type: code-single-line
-        name: Enter your name
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
 weight: 1.0

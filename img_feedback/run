@@ -1,12 +1,4 @@
-#!/bin/python
-import os
-import base64
-text = os.popen('getinput myname').read().strip('\n')
+#!/bin/bash
 
-#command = 'convert smiley.jpg -fill blue '+\
-#          '-font CANDY.TTF -pointsize 72 label:"Hello '+text+'" '+\
-#          '-append new.jpg'
-
-#os.popen(command).read()
-
-os.system("rst-image smiley.jpg | feedback-msg -a")
+feedback-result success
+rst-image smiley.jpg | feedback-msg -a
