@@ -16,7 +16,7 @@ problems:
         language: ''
         name: Enter your name
         header: Please enter your name below.
-        type: code-single-line
+        type: code_single_line
 stored_submissions: 0
 submission_limit:
     amount: -1
