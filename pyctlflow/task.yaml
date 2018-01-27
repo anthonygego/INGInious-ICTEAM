@@ -37,7 +37,7 @@ problems:
                 print "Negative"
 
             What does Python will display ?
-        type: multiple-choice
+        type: multiple_choice
         limit: 0
         name: If statement
     mcq2:
@@ -48,7 +48,7 @@ problems:
                 100, including odd numbers.
         -   text: '*2* is the *skip* argument, telling range function to skip two
                 integers each time.'
-        type: multiple-choice
+        type: multiple_choice
         limit: 0
         name: For statement
         header: |-
@@ -81,7 +81,7 @@ problems:
                     cabbage
         name: Break and continue statements
         limit: 0
-        type: multiple-choice
+        type: multiple_choice
         header: |
             Consider this piece of code :
 
@@ -123,7 +123,7 @@ problems:
         header: 'One is interested in writing a Python function that computes the
             area and perimeter of a rectangle. Which of the following implementations
             will you use :'
-        type: multiple-choice
+        type: multiple_choice
     mcq5:
         choices:
         -   text: |-
@@ -140,7 +140,7 @@ problems:
 
                     greet("John",)
         name: Optional arguments
-        type: multiple-choice
+        type: multiple_choice
         header: |-
             You have learned about optional paramters in Python and are trying to write a greeting function with a specific message according to the language of the person you greet. For all others, a classic message will appear.
 
@@ -156,7 +156,7 @@ problems:
             John speaks English, how will you greet him ?
         limit: 0
     mcq6:
-        type: multiple-choice
+        type: multiple_choice
         choices:
         -   text: |-
                 .. code-block:: python
@@ -214,7 +214,7 @@ problems:
                 .. code-block:: python
 
                     printf("Account of M(rs). %s : %d €", "John Smith", number=442)
-        type: multiple-choice
+        type: multiple_choice
         multiple: true
         name: Arbitrary argument list
         header: |-
@@ -249,7 +249,7 @@ problems:
 
                     account_balance(name="John Smith")
         limit: 4
-        type: multiple-choice
+        type: multiple_choice
         header: |-
             Consider the following piece of code:
 
@@ -277,7 +277,7 @@ problems:
                     # Do nothing
 
             But that does'nt work, and Python crashes. What's going on ?
-        type: multiple-choice
+        type: multiple_choice
     mcq10:
         choices:
         -   valid: true
@@ -308,7 +308,7 @@ problems:
         limit: 0
         header: Docstrings are useful when writting documentation for your code in
             Python. Can you check the correct usage of docstrings ?
-        type: multiple-choice
+        type: multiple_choice
         name: Documentation strings
 stored_submissions: 0
 weight: 1.0
